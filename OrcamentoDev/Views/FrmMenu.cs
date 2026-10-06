@@ -20,5 +20,11 @@ namespace OrcamentoDev.Views
             Application.OpenForms["FrmLogin"]?.Show();
             this.Close();
         }
+
+        private void btnNovoOrcamento_Click(object sender, EventArgs e)
+        {
+            FrmOrcamento telaOrcamento = new FrmOrcamento();
+            telaOrcamento.ShowDialog();
+        }
     }
 }

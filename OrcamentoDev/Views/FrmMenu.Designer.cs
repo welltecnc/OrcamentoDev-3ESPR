@@ -56,6 +56,7 @@
             btnNovoOrcamento.TabIndex = 1;
             btnNovoOrcamento.Text = "Novo Orçamento";
             btnNovoOrcamento.UseVisualStyleBackColor = false;
+            btnNovoOrcamento.Click += btnNovoOrcamento_Click;
             // 
             // btnRelatorio
             // 
