@@ -47,5 +47,41 @@ namespace OrcamentoDev.Views
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(string.IsNullOrWhiteSpace(txtCliente.Text) || string.IsNullOrWhiteSpace(txtHoras.Text))
+                {
+                    MessageBox.Show("Preencha os campos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                string cliente = txtCliente.Text;
+                string projeto = txtProjeto.Text;
+                string hora = txtHoras.Text;
+                string valorHora = txtValorHora.Text;
+                bool urgente = chkUrgente.Checked;
+
+                string conteudo = "------------------------------------\n" +
+                    $"Data/Hora: {DateTime.Now}\n" +
+                    $"Cliente: {cliente}\n" +
+                    $"Projeto: {projeto}\n" +
+                    $"Horas: {hora} h | Valor Hora: {valorHora}\n" +
+                    $"Urgente: {(urgente ? "Sim" : "Não")}\n" +
+                    $"Total: R$ {valorTotalCalculado:N2}\n" +
+                    $"";
+
+                //criando o caminho seguro para salvar na pasta
+                string camimho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "orcamento.txt");
+                File.AppendAllText(camimho, conteudo);
+                MessageBox.Show("Orçamento salvo com sucesso", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Erro ao salvar arquivo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -143,6 +143,7 @@
             btnSalvar.TabIndex = 11;
             btnSalvar.Text = "Salvar Orçamento";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // FrmOrcamento
             // 

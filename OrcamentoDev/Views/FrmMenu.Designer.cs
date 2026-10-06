@@ -69,6 +69,7 @@
             btnRelatorio.TabIndex = 2;
             btnRelatorio.Text = "Relatório";
             btnRelatorio.UseVisualStyleBackColor = false;
+            btnRelatorio.Click += btnRelatorio_Click;
             // 
             // btnSair
             // 
